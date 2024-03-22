@@ -9,7 +9,7 @@ body {
 canvas { width: 100%; height: 100% }
 
 #header {
-    padding: 15px 0;
+    padding: 15px 0 9px;
     position: fixed;
     top: 0;
     left: 0;
@@ -25,12 +25,12 @@ canvas { width: 100%; height: 100% }
 }
 
 #header .logo {
-    width: 7%;
+    max-width: 7% !important;
     opacity: 1;
 }
 
 .logo img {
-    width: 100%;
+    max-width: 100%;
 }
 
 .sidenav {
@@ -46,27 +46,30 @@ canvas { width: 100%; height: 100% }
 
 .content {
     /* margin: 0 50px; */
-    padding-top: 100px;
+    /* padding-top: 100px; */
 }
 
 #intro-text {
     position: absolute;
-    top: 294px;
-    left: 341px;
-    min-width: 400px !important;
+    top: 291px;
+    left: 342px;
+    min-width: 402px !important;
     inline-size: 150px;
 }
 
 #intro-text h1 {
     background-color: #000000;
+    font-size: 33px;
     font-weight: 500;
     text-align: left;
-    display: initial;
+    display: inline;
     line-height: 1.5;
-    padding: 8px;
+    padding: 11px 0;
 }
 
 #webgl {
+    box-sizing: border-box;
+    overflow-x: hidden;
     /* background-color: red; */
     /* border: 1px solid blue; */
     /* width: 100%; */
@@ -78,3 +81,13 @@ canvas { width: 100%; height: 100% }
     /* top: 100px; */
     /* left: 100px; */
 }
+
+.footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #000000;
+    text-align: center;
+  }
