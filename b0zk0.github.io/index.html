@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">http://127.0.0.1:5500/index.html
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>brian miranda :// web developer</title>
+    <link href="resources/css/style.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/rgp3xwh.css">
+</head>
+
+<body>
+    <header id="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="resources/img/logo.png" alt="Brian Miranda, Web Designer">
+                </a>
+            </div>
+            <!-- Navbar part -->
+            <div class="sidenav">
+                <a href="info.html">
+                    <div>
+                        <p>info</p>
+                    </div>
+                </a>
+                <a href="work.html">
+                    <div>
+                        <p>work</p>
+                    </div>
+                </a>
+                <a href="contact.html">
+                    <div>
+                        <p>contact</p>
+                    </div>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content">
+        <div id="splash">
+            <div id="intro-text">
+                <h1 id="slogan">welcome to your doom</h1>
+            </div>
+            <div id="webgl"></div>
+        </div>
+    </div>
+
+    <footer></footer>
+
+    
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js" ></script>
+<script src="https://unpkg.com/three@0.85.0/examples/js/controls/OrbitControls.js" ></script>
+<script src="https://unpkg.com/three@0.85.0/examples/js/effects/AsciiEffect.js" ></script>
+<script src="https://fariskassim.com/stage/rebel9/teaf/blob/v4/js/perlin.js"></script>
+
+<!-- three.js -->
+<script>
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    
+    const scene = new THREE.Scene();
+    
+    let canvas = document.querySelector(".webgl")
+    let renderer = new THREE.WebGLRenderer(canvas);
+    
+    effect = new THREE.AsciiEffect( renderer, ' .:-+*=%@#', { invert: true } );
+    effect.domElement.style.color = 'white';
+    effect.domElement.style.backgroundColor = 'black';
+    // resizer original size 1.8 not 1
+    effect.setSize(window.innerWidth/1.06, window.innerHeight/1.06);
+    
+    document.getElementById("webgl").appendChild(effect.domElement);
+
+    // var geometry = new THREE.CubeGeometry(2, 2, 2);
+    // var material = new THREE.MeshStandardMaterial();
+    // var cube = new THREE.Mesh( geometry, material );
+    // scene.add( cube );
+    
+    var geometry = new THREE.SphereGeometry(1, 128, 128);
+    var material = new THREE.MeshStandardMaterial();
+    var sphere = new THREE.Mesh( geometry, material );
+    scene.add( sphere );
+
+    var update = function() {
+
+        // change '0.003' for more aggressive animation
+        var time = performance.now() * 0.003;
+        //console.log(time)
+
+        //go through vertices here and reposition them
+
+        // change 'k' value for more spikes
+        var k = 3;
+        for (var i = 0; i < sphere.geometry.vertices.length; i++) {
+            var p = sphere.geometry.vertices[i];
+            p.normalize().multiplyScalar(1 + 0.3 * noise.perlin3(p.x * k + time, p.y * k, p.z * k));
+        }
+        sphere.geometry.computeVertexNormals();
+        sphere.geometry.normalsNeedUpdate = true;
+        sphere.geometry.verticesNeedUpdate = true;
+    }
+    
+    var light = new THREE.AmbientLight( 0xff55ee );
+    scene.add( light );
+    
+    var directionalLight = new THREE.DirectionalLight( 0xf0f0ff, 0.1 );
+    directionalLight.position = (1,1,0);
+    scene.add( directionalLight );
+    
+    var hlight = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );
+    scene.add( hlight );
+    
+    let camera;
+    let controls;
+    
+    const setCamera = () => {
+        const { innerWidth, innerHeight } = window;
+        camera = new THREE.PerspectiveCamera(40, innerWidth/innerHeight, 0.1, 1000);
+        controls = new THREE.OrbitControls(camera, effect.domElement);
+        
+        camera.position.z = 3;
+        camera.position.y = 2.5;
+        controls.autoRotate = true;
+        // controls.autoRotateSpeed = 1200 * clock.getDelta();
+        controls.update();
+    }
+    
+    setCamera();
+    
+    window.addEventListener("resize", () => {
+      effect.setSize(window.innerWidth, window.innerHeight);
+      setCamera();
+    }, false);
+    
+    function animate() {
+        update();
+        requestAnimationFrame( animate );
+        controls.update();
+        effect.render( scene, camera );
+    }
+    animate();
+</script>
+
+<!-- quotes -->
+<script>
+    function refreshSlogan() {
+        // quote randomizer
+        var slogans = ["cynical views on the world and stuff since 1992",
+                    "welcome to your doom",
+                    "it's dot com",
+                    "a few lines of code say more than a thousand words",
+                    "they have the internet on computers now",
+                    "my mom says I'm cool",
+                    "in a few devoted hearts I've found a strong fanbase",
+                    "pioneer of aerodynamics",
+                    "a modest site for modest mice",
+                    "just hire me already!",
+                    "a normal functioning member of the human race",
+                    "I probably won't like you very much, but that doesn't mean we can't do something cool",
+                    "Love is hate. Hate is love.",
+                    "I speak HTML5 and dress in CSS3?",
+                
+                    "hated my most, loved by the lost",
+                    "analogue dreams and digital nightmares",
+                    "wronging rights since 1992",
+                    "fighting justice since 1992",
+                    "selling government secrets to the communists since 1992",
+                    "digital lunacy since 1992",
+                    "killing good taste wherever I find it",
+                    "digital couture since 1992",
+                    "why don't you tell me what went wrong?",
+                    "cheating and stealing for no particular reason",
+                    "killing dreams, murdering hope, fighting the righteous, bullying the weak",
+                    "underhand tactics a specialty",
+                    "impressionable and talentless idiot on a mission to entertain",
+                    "making the future brighter and more plastic",
+                    "impossibly glamorous and under-educated",
+                ];
+        var randomNumber = Math.floor(Math.random() * (slogans.length));
+        document.getElementById('slogan').textContent = slogans[randomNumber];
+    };
+    document.addEventListener("load", refreshSlogan());
+
+  </script>
+
+</html>
