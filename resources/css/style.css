@@ -72,12 +72,13 @@ canvas { width: 100%; height: 100% }
 }
 
 .content {
-    padding-top: 100px;
+    padding-top: 30px;
+    /*padding-top: 100px;*/
 }
 
 #intro-text {
     position: absolute;
-    top: 284px;
+    top: 281px;
     left: 345px;
     min-width: 500px !important;
     inline-size: 150px;
@@ -96,6 +97,7 @@ canvas { width: 100%; height: 100% }
 
 #intro-text h1 span {
     background-color: #000000;
+    padding: 8px 0 8px 0;
 }
 
 #webgl {
@@ -121,4 +123,8 @@ canvas { width: 100%; height: 100% }
     padding: 1rem;
     background-color: #000000;
     text-align: center;
+  }
+
+  .footer a {
+    color: #FFFFFF;
   }
