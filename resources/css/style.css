@@ -176,6 +176,7 @@ ul.list-list {
   vertical-align: middle;
   line-height: 1.4;
   /* padding: 0 10px; */
+  /* font-family: input-sans; */
 }
 
 #intro-text h1 span {
@@ -197,6 +198,8 @@ ul.list-list {
   /* top: 100px; */
   /* left: 100px; */
 }
+
+/* work */
 
 .portfolio {
   max-width: 1200px;
@@ -226,43 +229,45 @@ ul.list-list {
   filter: grayscale(0);
 }
 
-.footer {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #000000;
-  text-align: center;
+.modal {
+  background: #000000 !important;
+  max-width: 700px !important;
 }
 
-.footer a {
-  color: #FFFFFF;
+.modal-img {
+  width: 100%;
 }
 
-.marginalized {
-  margin: auto 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.modal-title {
+  font-size: 20px;
+  font-weight: 500;
 }
 
-.socialite a {
-  margin: auto 4px;
-}
-
-.spacehey {
-  background: url('/resources/img/spacehey.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-  color: #FFFFFF;
+a.preview {
+  text-align: center !important;
 }
 
 /* info */
+
+#info-intro, #contact {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.info-img {
+  width: 55%;
+  justify-self: flex-start;
+}
+
+.info-img img {
+  width: 100%;
+}
+
+.info-text {
+  width: 40%;
+  padding-left: 50px;
+  padding-right: 10px;
+}
 
 .content-info {
   padding-top: 100px;
@@ -287,6 +292,48 @@ ul.list-list {
 
 .right {
   align-self: flex-end;
+}
+
+/* contact */
+
+
+/* footer */
+
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #000000;
+  text-align: center;
+}
+
+.footer a, .footer p {
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+.marginalized {
+  margin: auto 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.socialite a {
+  margin: auto 4px;
+}
+
+.spacehey {
+  background: url('/resources/img/spacehey.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  color: #FFFFFF;
 }
 
 /* New media queries */

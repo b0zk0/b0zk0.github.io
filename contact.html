@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>brian miranda :// web developer</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon-32x32.png" sizes="32x32">
+    <link href="resources/css/style.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/rgp3xwh.css">
+</head>
+
+<body>
+    <header id="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="resources/img/logo.png" alt="Brian Miranda, Web Designer">
+                </a>
+            </div>
+            <!-- Navbar part -->
+            <div class="sidenav">
+                <a href="info.html">
+                    <div>
+                        <p>info</p>
+                    </div>
+                </a>
+                <a href="work.html">
+                    <div>
+                        <p>work</p>
+                    </div>
+                </a>
+                <a href="contact.html">
+                    <div>
+                        <p>contact</p>
+                    </div>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- <div class="overlay" id="overlay">
+        <nav class="overlay-menu">
+            <ul>
+                <li><a href="info.html">info</a></li>
+                <li><a href="work.html">work</a></li>
+                <li><a href="contact.html">contact</a></li>
+            </ul>
+        </nav>
+    </div> -->
+
+    <div class="content-info">
+        <!-- <div id="splash">
+            <div id="intro-text">
+                <h1>
+                    <span id="slogan">so...</span>
+                </h1>
+            </div>
+        </div> -->
+        <div id="contact">
+            <div class="info-img">
+                <!-- <img class="picture" src="resources/img/profile-pic.png" alt="my face"> -->
+                <pre class="ascii-element">
+                </pre>
+            </div>
+            <div class="info-text">
+                <h1 class="title">let's get in touch!</h1>
+                <p class="first">
+                    My name is Brian Miranda, and I'm a web developer and internet researcher based in
+                    Mexico City. Need a website? Hit me up!</p>
+                <p>
+                    I'm also well-versed in UX design and mobile-first development (as you can see from this
+                    <em>bitchin'</em> website), and I also do research on various online topics, particularly about
+                    internet culture, community moderation, misinformation, political activism, internet censorship,
+                    platform policy/governance, DRM, online communities, online harassment, and the various
+                    intersections
+                    of mental health and social media.
+                </p>
+                <p>
+                    When I'm not working you can usually find me dancing rockabilly, almost every weekend.
+                    I also play the same three basic riffs on my guitar over and over again.
+                    Lately I've been getting into analogue photography, both with Instax and Lomo cameras, although
+                    I'm really not good at it.
+                    As for me, well, I like putting ketchup on eggs, I grew up on a steady diet of Simpsons
+                    episodes, MTV, early
+                    2000's internet culture, Beatles albums and old PS1 games.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <!--Footer stuff goes <strong>here</strong>.-->
+        <div class="marginalized">
+            <div>
+                <p>made with <i class="fa-solid fa-heart"></i> by me.</p>
+            </div>
+            <div class="socialite">
+                <a href="https://www.instagram.com/brianmir92/" target="_blank"><i
+                        class="fa-brands fa-instagram fa-lg"></i></a>
+                <a href="https://github.com/b0zk0" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
+                <a href="https://www.linkedin.com/in/brianmr/" target="_blank"><i
+                        class="fa-brands fa-linkedin-in fa-lg"></i></a>
+                <a href="https://open.spotify.com/user/brian_miranda" target="_blank"><i
+                        class="fa-brands fa-spotify fa-lg"></i></a>
+                <!-- <a href="#" target="_blank"><i class="spacehey"></i></a> -->
+                <a href="https://diebriandie.tumblr.com" target="_blank"><i
+                        class="fa-brands fa-square-tumblr fa-lg"></i></a>
+            </div>
+            <div>
+                <a href="contact.html">en</a>
+                <span>/</span>
+                <a href="contact-es.html">es</a>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script src="https://kit.fontawesome.com/2fd1a7327d.js" crossorigin="anonymous"></script>
+<script>
+    /**
+ * Ascii Morph
+ * @author: Tim Holman (http://tholman.com)
+ */
+
+var AsciiMorph = (function() {
+
+'use strict';
+
+var element = null;
+var canvasDimensions = {};
+
+var renderedData = [];
+var framesToAnimate = [];
+var myTimeout = null;
+
+/**
+ * Utils
+ */
+
+function extend(target, source) {
+  for (var key in source) {
+    if (!(key in target)) {
+      target[key] = source[key];              
+    }
+  }
+  return target;
+}
+
+function repeat(pattern, count) {
+    if (count < 1) return '';
+    var result = '';
+    while (count > 1) {
+        if (count & 1) result += pattern;
+        count >>= 1, pattern += pattern;
+    }
+    return result + pattern;
+}
+
+function replaceAt(string, index, character ) {
+  return string.substr(0, index) + character + string.substr(index+character.length);
+}
+
+/**
+ * AsciiMorph
+ */
+
+function init(el, canvasSize) {
+  
+  // Save the element
+  element = el;
+  canvasDimensions = canvasSize;
+}
+
+function squareOutData(data) {
+   var i;
+  var renderDimensions = {
+    x: 0,
+    y: data.length
+  };
+
+  // Calculate centering numbers
+  for( i = 0; i < data.length; i++ ) {
+    if( data[i].length > renderDimensions.x) {
+      renderDimensions.x = data[i].length
+    }
+  }
+  
+  // Pad out right side of data to square it out
+  for( i = 0; i < data.length; i++ ) {
+    if( data[i].length < renderDimensions.x) {
+      data[i] = (data[i] + repeat(' ', renderDimensions.x - data[i].length ));
+    }
+  }
+  
+  var paddings = {
+    x: Math.floor((canvasDimensions.x - renderDimensions.x) / 2),
+    y: Math.floor((canvasDimensions.y - renderDimensions.y) / 2)
+  }
+  
+  // Left Padding
+  for( var i = 0; i < data.length; i++ ) {
+    data[i] = repeat(' ', paddings.x) + data[i] + repeat(' ', paddings.x);
+  }
+  
+  // Pad out the rest of everything
+  for( var i = 0; i < canvasDimensions.y; i++ ) {
+    if( i < paddings.y) {
+      data.unshift( repeat(' ', canvasDimensions.x));
+    } else if (i > (paddings.y + renderDimensions.y)) {
+      data.push( repeat(' ', canvasDimensions.x));
+    }
+  }
+  
+  return data;
+}
+
+// Crushes the frame data by 1 unit.
+function getMorphedFrame(data) {
+  
+  var firstInLine, lastInLine = null;
+  var found = false;
+  for( var i = 0; i < data.length; i++) {
+    
+    var line = data[i];
+    firstInLine = line.search(/\S/);
+    if( firstInLine === -1) {
+      firstInLine = null;
+    }
+    
+    for( var j = 0; j < line.length; j++) {
+      if( line[j] != ' ') {
+        lastInLine = j;
+      }
+    }
+    
+    if( firstInLine !== null && lastInLine !== null) {
+      data = crushLine(data, i, firstInLine, lastInLine)
+      found = true;
+    }
+
+    firstInLine = null, lastInLine = null;
+  }
+  
+  if( found ) {
+    return data;
+  } else {
+    return false;
+  }
+}
+
+function crushLine(data, line, start, end) {
+  
+  var centers = {
+    x: Math.floor(canvasDimensions.x / 2),
+    y: Math.floor(canvasDimensions.y / 2)
+  }
+  
+  var crushDirection = 1;
+  if( line > centers.y ) {
+    crushDirection = -1;
+  }
+  
+  var charA = data[line][start];
+  var charB = data[line][end];
+  
+  data[line] = replaceAt(data[line], start, " ");
+  data[line] = replaceAt(data[line], end, " ");
+
+  if( !((end - 1) == (start + 1)) && !(start === end) && !((start + 1) === end)) {
+    data[line + crushDirection] = replaceAt(data[line + crushDirection], (start + 1), '+*/\\'.substr(Math.floor(Math.random()*'+*/\\'.length), 1));
+    data[line + crushDirection] = replaceAt(data[line + crushDirection], (end - 1), '+*/\\'.substr(Math.floor(Math.random()*'+*/\\'.length), 1));
+  } else if ((((start === end) || (start + 1) === end)) && ((line + 1) !== centers.y && (line - 1) !== centers.y && line !== centers.y)) {
+    data[line + crushDirection] = replaceAt(data[line + crushDirection], (start), '+*/\\'.substr(Math.floor(Math.random()*'+*/\\'.length), 1));
+    data[line + crushDirection] = replaceAt(data[line + crushDirection], (end), '+*/\\'.substr(Math.floor(Math.random()*'+*/\\'.length), 1));
+  }
+  
+  return data;
+}
+
+function render(data) {
+  var ourData = squareOutData(data.slice());
+  renderSquareData(ourData);
+}
+
+function renderSquareData(data) {
+  element.innerHTML = '';
+  for( var i = 0; i < data.length; i++ ) {
+    element.innerHTML = element.innerHTML + data[i] + '\n';
+  }
+  
+  renderedData = data;
+}
+
+// Morph between whatever is current, to the new frame
+function morph(data) {
+  
+  clearTimeout(myTimeout);
+  var frameData = prepareFrames(data.slice());
+  animateFrames(frameData);
+}
+
+function prepareFrames(data) {
+  
+  var deconstructionFrames = [];
+  var constructionFrames = [];
+
+  var clonedData = renderedData
+  
+  // If its taking more than 100 frames, its probably somehow broken
+  // Get the deconscrution frames
+  for(var i = 0; i < 100; i++) {
+    var newData = getMorphedFrame(clonedData);
+    if( newData === false) {
+      break;
+    }
+    deconstructionFrames.push(newData.slice(0)); 
+    clonedData = newData;
+  }
+  
+  // Get the constuction frames for the new data
+  var squareData = squareOutData(data);
+  constructionFrames.unshift(squareData.slice(0));
+  for( var i = 0; i < 100; i++ ) {
+    var newData = getMorphedFrame(squareData);
+    if( newData === false) {
+      break;
+    }
+    constructionFrames.unshift(newData.slice(0));
+    squareData = newData;
+  }
+  
+  return deconstructionFrames.concat(constructionFrames)
+}
+
+function animateFrames(frameData) {
+  framesToAnimate = frameData;
+  animateFrame();
+}
+
+function animateFrame() {
+  myTimeout = setTimeout(function() {
+    
+    renderSquareData(framesToAnimate[0]);
+    framesToAnimate.shift();
+    if( framesToAnimate.length > 0 ) {
+      animateFrame();
+    }
+  }, 20)
+
+  // framesToAnimate
+}
+
+function main(element, canvasSize) {
+  
+  if( !element || !canvasSize ) {
+    console.log("sorry, I need an element and a canvas size");
+    return;   
+  }
+  
+  init(element, canvasSize);
+}
+
+return extend(main, {
+  render: render,
+  morph: morph
+});
+
+})();
+
+var element = document.querySelector('pre');
+AsciiMorph(element, {x: 51,y: 28});
+
+var asciis = [[
+"                _ooOoo_",
+"               o8888888o",
+"               88\" . \"88",
+"               (| -_- |)",
+"               O\\  =  /O",
+"            ____/`---'\\____",
+"          .'  \\\\|     |//  `.",
+"         /  \\\\|||  :  |||//  \\",
+"        /  _||||| -:- |||||_  \\",
+"        |   | \\\\\\  -  /'| |   |",
+"        | \\_|  `\\`---'//  |_/ |",
+"        \\  .-\\__ `-. -'__/-.  /",
+"      ___`. .'  /--.--\\  `. .'___",
+"   .\"\" '<  `.___\\_<|>_/___.' _> \\\"\".",
+"  | | :  `- \\`. ;`. _/; .'/ /  .' ; |",
+"  \\  \\ `-.   \\_\\_`. _.'_/_/  -' _.' /",
+"===`-.`___`-.__\\ \\___  /__.-'_.'_.-'===",
+"                `=--=-'    "
+],
+
+[
+"                             /",
+"                            /",
+"                           /;",
+"                          //",
+"                         ;/",
+"                       ,//",
+"                   _,-' ;_,,",
+"                _,'-_  ;|,'",
+"            _,-'_,..--. |",
+"    ___   .'-'_)'  ) _)\\|      ___",
+"  ,'\"\"\"`'' _  )   ) _)  ''--'''_,-'",
+"-={-o-  /|    )  _)  ) ; '_,--''",
+"  \\ -' ,`.  ) .)  _)_,''|",
+"   `.\"(   `------''     /",
+"     `.\\             _,'",
+"       `-.____....-\\\\",
+"                 || \\\\",
+"                 // ||",
+"                //  ||",
+"            _-.//_ _||_,",
+"              ,'  ,-'/"
+],
+
+[
+"o               .        ___---___                    .                   ",
+"       .              .--\        --.     .     .         .",
+"                    ./.;_.\     __/~ \.     ",
+"                   /;  / `-'  __\    . \                            ",
+" .        .       / ,--'     / .   .;   \        |",
+"                 | .|       /       __   |      -O-       .",
+"                |__/    __ |  . ;   \ | . |      |",
+"                |      /  \\_    . ;| \___|    ",
+"   .    o       |      \  .~\\___,--'     |           .",
+"                 |     | . ; ~~~~\_    __|",
+"    |             \    \   .  .  ; \  /_/   .",
+"   -O-        .    \   /         . |  ~/                  .",
+"    |    .          ~\ \   .      /  /~          o",
+"  .                   ~--___ ; ___--~       ",
+"                 .          ---         .              "
+],
+
+[
+"     .--------.",
+"    / .------. \\",
+"   / /        \\ \\",
+"   | |        | |",
+"  _| |________| |_",
+".' |_|        |_| '.",
+"'._____ ____ _____.'",
+"|     .'____'.     |",
+"'.__.'.'    '.'.__.'",
+"'.__  |      |  __.'",
+"|   '.'.____.'.'   |",
+"'.____'.____.'____.'",
+"'.________________.'",
+],
+
+[
+"         ____",
+"        o8%8888,",
+"      o88%8888888.",
+"     8'-    -:8888b",
+"    8'         8888",
+"   d8.-=. ,==-.:888b",
+"   >8 `~` :`~' d8888",
+"   88         ,88888",
+"   88b. `-~  ':88888",
+"   888b ~==~ .:88888",
+"   88888o--:':::8888",
+"   `88888| :::' 8888b",
+"   8888^^'       8888b",
+"  d888           ,%888b.",
+" d88%            %%%8--'-.",
+"/88:.__ ,       _%-' ---  -",
+"    '''::===..-'   =  --.  `",
+],
+
+[
+"      _      _      _",
+"   __(.)< __(.)> __(.)=",
+"   \\___)  \\___)  \\___)  ",
+"          _      _      _",
+"       __(.)< __(.)> __(.)=",
+"       \\___)  \\___)  \\___)   ",
+"      _      _      _",
+"   __(.)< __(.)> __(.)=",
+"   \\___)  \\___)  \\___)   ",
+"          _      _      _",
+"       __(.)< __(.)> __(.)=",
+"       \\___)  \\___)  \\___)  "
+]];
+
+AsciiMorph.render(asciis[0]);
+
+var currentIndex = 2;
+
+setTimeout(function() {
+AsciiMorph.morph(asciis[1]);
+}, 1000);
+
+setInterval(function() {
+AsciiMorph.morph(asciis[currentIndex]);
+currentIndex++;
+currentIndex%= asciis.length;
+}, 3000);
+</script>
+
+</html>
