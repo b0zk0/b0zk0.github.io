@@ -8,6 +8,10 @@
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #000000;
   font-family: "elza", sans-serif;
@@ -126,7 +130,7 @@ a {
 }
 
 a:hover {
-  color: blue;
+  color: royalblue !important;
 }
 
 .list {
@@ -274,12 +278,13 @@ a.preview {
 }
 
 #info {
-  margin: 100px 250px;
+  margin: 50px 250px;
 }
 
 #resume {
   display: flex;
   flex-direction: column;
+  margin-bottom: 100px;
 }
 
 .section {
@@ -301,12 +306,22 @@ a.preview {
 }
 
 .contact-ascii {
-  width: 60%;
+  width: 55%;
   text-align: center;
 }
 
 .contact-deets {
-  width: 40%;
+  width: 45%;
+}
+
+.quotebox {
+  width: 70%;
+  height: 400px;
+  margin: 50px auto;
+}
+
+.quotebox h1 {
+  text-align: center;
 }
 
 /* footer */
