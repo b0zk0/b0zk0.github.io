@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <header id="header">
+    <header>
         <nav class="navbar">
             <div class="logo">
                 <a href="index.html">
@@ -24,40 +24,30 @@
             </div>
             <!-- Navbar part -->
             <div class="sidenav">
-                <a href="info.html">
-                    <div>
-                        <p>info</p>
-                    </div>
-                </a>
-                <a href="work.html">
-                    <div>
-                        <p>work</p>
-                    </div>
-                </a>
-                <a href="contact.html">
-                    <div>
-                        <p>contact</p>
-                    </div>
-                </a>
+                <a href="info.html">info</a>
+                <a href="work.html">work</a>
+                <a href="contact.html">contact</a>
             </div>
 
-            <!-- <div class="button_container" id="toggle">
+            <div class="sm-sidenav" id="toggle">
                 <span class="top"></span>
                 <span class="middle"></span>
                 <span class="bottom"></span>
-            </div> -->
+            </div>
         </nav>
     </header>
 
-    <!-- <div class="overlay" id="overlay">
+    
+
+    <div class="overlay" id="overlay">
         <nav class="overlay-menu">
             <ul>
-                <li><a href="info.html">info</a></li>
-                <li><a href="work.html">work</a></li>
-                <li><a href="contact.html">contact</a></li>
+                <li><a href="info.html">&lt;info&gt;</a></li>
+                <li><a href="work.html">&lt;work&gt;</a></li>
+                <li><a href="contact.html">&lt;contact&gt;</a></li>
             </ul>
         </nav>
-    </div> -->
+    </div>
 
     <div class="content">
         <div id="splash">
@@ -71,9 +61,8 @@
     </div>
 
     <div class="footer">
-        <!--Footer stuff goes <strong>here</strong>.-->
         <div class="marginalized">
-            <div>
+            <div class="heart">
                 <p>made with <i class="fa-solid fa-heart"></i> by me.</p>
             </div>
             <div class="socialite">
@@ -84,7 +73,7 @@
                         class="fa-brands fa-spotify fa-lg"></i></a>
                 <!-- <a href="#" target="_blank"><i class="spacehey"></i></a> -->
                 <a href="https://www.instagram.com/brianmir92/" target="_blank"><i
-                    class="fa-brands fa-instagram fa-lg"></i></a>
+                        class="fa-brands fa-instagram fa-lg"></i></a>
                 <a href="https://diebriandie.tumblr.com" target="_blank"><i
                         class="fa-brands fa-square-tumblr fa-lg"></i></a>
             </div>
@@ -99,6 +88,7 @@
 
 </body>
 <script src="https://kit.fontawesome.com/2fd1a7327d.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
 <script src="https://unpkg.com/three@0.85.0/examples/js/controls/OrbitControls.js"></script>
 <script src="https://unpkg.com/three@0.85.0/examples/js/effects/AsciiEffect.js"></script>
@@ -190,6 +180,17 @@
 <!-- quotes -->
 <script>
     function refreshSlogan() {
+        //nav menu
+        $('#toggle').click(function () {
+            $(this).toggleClass('active');
+            $('#overlay').toggleClass('open');
+        });
+
+        $('.go').click(function () {
+            $('#overlay').toggleClass('open');
+            $('.sm-sidenav').removeClass('active');
+        });
+
         // quote randomizer
         var slogans = [
             "cynical views on the world and stuff since 1992",
