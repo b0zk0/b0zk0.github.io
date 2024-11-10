@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <header id="header">
+  <header>
     <nav class="navbar">
       <div class="logo">
         <a href="index.html">
@@ -23,7 +23,7 @@
         <a href="info.html">info</a>
         <a href="work.html">work</a>
         <a href="contact.html">contact</a>
-    </div>
+      </div>
     </nav>
   </header>
 
@@ -74,7 +74,7 @@
     <h1 id="quote">loading...</h1>
   </div>
 
-  <div class="footer">
+  <footer>
     <div class="marginalized">
       <div>
         <p>made with <i class="fa-solid fa-heart"></i> by me.</p>
@@ -95,11 +95,15 @@
         <a href="contact-es.html">es</a>
       </div>
     </div>
-  </div>
+  </footer>
 
 
 </body>
 <script src="https://kit.fontawesome.com/2fd1a7327d.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script>
   /**
   * Ascii Morph
@@ -481,24 +485,24 @@
     ],
 
     [
-      "         .",
-      "         \\'~~~-,",
-      "          \\    '-,_ ",
-      "           \\ /\\    `~'~''\\     ",
-      "           _\\ \\          \\/~\\ ",
-      "           \\__ \\             \\   ",
-      "              \\ \\.             \\  ",
-      "               \\ \\ \\             `~~",
-      "                '\\ \\.             /",
-      "                 L \\  \\            |",
-      "                  \\_\\  \\           |             _.----,",
-      "                        |           \\           !     /",
-      "                       '._       o   \\_      __/    _/",
-      "                          \\_   cdmx    ''--''    __/",
-      "                            \\.__                |",
-      "                                ''.__  __.._   __\\",
-      "                                     ''     './  `",
-      "                                             "
+      ".",
+      "\\'~~~-,",
+      " \\    '-,_ ",
+      "  \\ /\\    `~'~''\\     ",
+      "  _\\ \\          \\/~\\ ",
+      "  \\__ \\             \\   ",
+      "     \\ \\.             \\  ",
+      "      \\ \\ \\             `~~",
+      "       '\\ \\.             /",
+      "        L \\  \\            |",
+      "         \\_\\  \\           |             _.----,",
+      "               |           \\           !     /",
+      "              '._       o   \\_      __/    _/",
+      "                 \\_   cdmx    ''--''    __/",
+      "                   \\.__                |",
+      "                       ''.__  __.._   __\\",
+      "                            ''     './  `",
+      "                                    "
     ],
 
     [
@@ -591,6 +595,7 @@
         document.getElementById('contactbox').innerHTML = contact[randomContact];
   };
   // document.addEventListener("load", refreshContact());
+  
 </script>
 
 </html>
