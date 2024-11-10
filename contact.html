@@ -24,8 +24,45 @@
         <a href="work.html">work</a>
         <a href="contact.html">contact</a>
       </div>
+
+      <div class="sm-sidenav" id="toggle">
+        <span class="top"></span>
+        <span class="middle"></span>
+        <span class="bottom"></span>
+      </div>
     </nav>
   </header>
+
+  <div class="overlay" id="overlay">
+    <nav class="overlay-menu">
+      <ul>
+        <li><a href="info.html">&lt;info&gt;</a></li>
+        <li><a href="work.html">&lt;work&gt;</a></li>
+        <li><a href="contact.html">&lt;contact&gt;</a></li>
+      </ul>
+    </nav>
+
+    <div class="sm-footer">
+      <div class="marginalized">
+        <div class="socialite">
+          <a href="https://github.com/b0zk0" target="_blank"><i class="fa-brands fa-github fa-2xl"></i></a>
+          <a href="https://www.linkedin.com/in/brianmr/" target="_blank"><i
+              class="fa-brands fa-linkedin-in fa-2xl"></i></a>
+          <a href="https://open.spotify.com/user/brian_miranda" target="_blank"><i
+              class="fa-brands fa-spotify fa-2xl"></i></a>
+          <!-- <a href="#" target="_blank"><i class="spacehey"></i></a> -->
+          <a href="https://www.instagram.com/brianmir92/" target="_blank"><i
+              class="fa-brands fa-instagram fa-2xl"></i></a>
+          <a href="https://diebriandie.tumblr.com" target="_blank"><i class="fa-brands fa-square-tumblr fa-2xl"></i></a>
+        </div>
+        <div>
+          <a href="contact.html">en</a>
+          <span>/</span>
+          <a href="contact-es.html">es</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="content-info">
     <div id="contact">
@@ -101,10 +138,21 @@
 </body>
 <script src="https://kit.fontawesome.com/2fd1a7327d.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
+  //nav menu
+  $('#toggle').click(function () {
+    $(this).toggleClass('active');
+    $('#overlay').toggleClass('open');
+  });
+
+  $('.go').click(function () {
+    $('#overlay').toggleClass('open');
+    $('.sm-sidenav').removeClass('active');
+  });
+
   /**
   * Ascii Morph
   * @author: Tim Holman (http://tholman.com)
@@ -587,15 +635,16 @@
       '<h1 class="title" style="margin-left: 10px;">like what you see? <br>let\'s get in touch</h1><div class="list"><p class="list-title">&lt;email&gt;</p><p class="list-date">click here to e-mail strong bad:</p><a class="list-link" href="mailto:brianmiranda@outlook.com">brianmiranda@outlook.com</a></div><div class="list"><p class="list-title">&lt;linkedin&gt;</p><p class="list-date">it\'s hip to be square.</p><a class="list-link" href="https://www.linkedin.com/in/brianmr/">linkedin.com/in/brianmr</a></div><div class="list"><p class="list-title">&lt;github&gt;</p><p class="list-date">git push --force. problem solved!</p><a class="list-link" href="https://github.com/b0zk0">github.com/b0zk0</a></div><div class="list"><p class="list-title">&lt;instagram&gt;</p><p class="list-date">I turn my camera on, I cut my fingers on the way.</p><a class="list-link" href="https://www.instagram.com/brianmir92/">@brianmir92</a></div><div class="list"><p class="list-title">&lt;spotify&gt;</p><p class="list-date">let\'s see if I\'ll have to wear headphones in your office or not.</p><a class="list-link" href="https://open.spotify.com/user/brian_miranda?si=afa7193b13fe4bd6">open.spotify.com/user/brian_miranda</a></div>',
 
       '<h1 class="title" style="margin-left: 10px;">like what you see? <br>let\'s get in touch</h1><div class="list"><p class="list-title">&lt;email&gt;</p><p class="list-date">please mr. postman look and see, is there a letter in your bag for me?</p><a class="list-link" href="mailto:brianmiranda@outlook.com">brianmiranda@outlook.com</a></div><div class="list"><p class="list-title">&lt;linkedin&gt;</p><p class="list-date">workin\' all summer just-a tryin\' to earn a dollar</p><a class="list-link" href="https://www.linkedin.com/in/brianmr/">linkedin.com/in/brianmr</a></div><div class="list"><p class="list-title">&lt;github&gt;</p><p class="list-date">you\'re so square, baby i don\'t care</p><a class="list-link" href="https://github.com/b0zk0">github.com/b0zk0</a></div><div class="list"><p class="list-title">&lt;instagram&gt;</p><p class="list-date">well be-bop-a-lula, she\'s my baby</p><a class="list-link" href="https://www.instagram.com/brianmir92/">@brianmir92</a></div><div class="list"><p class="list-title">&lt;spotify&gt;</p><p class="list-date">we\'re gonna rock this town, we\'re gonna rip this place apart</p><a class="list-link" href="https://open.spotify.com/user/brian_miranda?si=afa7193b13fe4bd6">open.spotify.com/user/brian_miranda</a></div>',
-      
+
       '<h1 class="title" style="margin-left: 10px;">like what you see? <br>let\'s get in touch</h1><div class="list"><p class="list-title">&lt;email&gt;</p><p class="list-date">please mr. postman - the marvelettes</p><a class="list-link" href="mailto:brianmiranda@outlook.com">brianmiranda@outlook.com</a></div><div class="list"><p class="list-title">&lt;linkedin&gt;</p><p class="list-date">summertime blues - eddie cochran</p><a class="list-link" href="https://www.linkedin.com/in/brianmr/">linkedin.com/in/brianmr</a></div><div class="list"><p class="list-title">&lt;github&gt;</p><p class="list-date">you\'re so square (baby, i don\'t care) - buddy holly</p><a class="list-link" href="https://github.com/b0zk0">github.com/b0zk0</a></div><div class="list"><p class="list-title">&lt;instagram&gt;</p><p class="list-date">be-bop-a-lula - gene vincent</p><a class="list-link" href="https://www.instagram.com/brianmir92/">@brianmir92</a></div><div class="list"><p class="list-title">&lt;spotify&gt;</p><p class="list-date">rip it up - bill haley and his comets</p><a class="list-link" href="https://open.spotify.com/user/brian_miranda?si=afa7193b13fe4bd6">open.spotify.com/user/brian_miranda</a></div>'
     ];
 
     var randomContact = Math.floor(Math.random() * (contact.length));
-        document.getElementById('contactbox').innerHTML = contact[randomContact];
+    document.getElementById('contactbox').innerHTML = contact[randomContact];
   };
+
   // document.addEventListener("load", refreshContact());
-  
+
 </script>
 
 </html>
