@@ -582,20 +582,96 @@ footer a, footer p {
   }
 }
 
-@media only screen and (min-width: 576px) {}
+@media only screen and (min-width: 576px) {
+  .sidenav {
+    width: 20%;
+  }
+
+  #intro-text {
+    left: 10%;
+    }
+
+    #info-intro, #contact {
+      flex-direction: column;
+    }
+
+    #info {
+      margin: 0 10%;
+    }
+
+    .info-img, .info-text {
+      width: 100%;
+    }
+
+    .info-text {
+      padding: 0 10%;
+    }
+
+    .section {
+      width: 52%;
+    }
+
+    .portfolio {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .contact-ascii, .contact-deets {
+      width: 100%;
+    }
+
+    .contact-deets {
+      margin: 0 10%;
+    }
+
+    .quotebox {
+      height: 200px;
+    }
+}
 
 @media only screen and (min-width: 768px) {
   .portfolio {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #info-intro, #contact {
+    flex-direction: row;
+  }
+
+  .info-img, .info-text {
+    width: 50%;
+  }
+
+  .info-text {
+    padding: 0 5%;
+  }
+
+  .section {
+    width: 60%;
+  }
+
+  .contact-ascii, .contact-deets {
+    width: 100%;
   }
 }
 
 @media only screen and (min-width: 992px) {
+  .sidenav {
+    width: 13%;
+  }
+
   .portfolio {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+  .sidenav {
+    width: 15%;
+  }
+}
 
-@media only screen and (min-width: 1400px) {}
+@media only screen and (min-width: 1400px) {
+  .sidenav {
+    width: 10%;
+  }
+}
