@@ -376,7 +376,7 @@ footer p {
   }
 
   .navbar {
-    margin: auto 40px;
+    margin: auto 20px;
     padding-top: 20px;
   }
 
@@ -524,12 +524,12 @@ footer p {
 
   #intro-text {
     left: 10%;
-    min-width: 350px !important;
-    max-width: 350px !important;
+    min-width: 150px !important;
+    max-width: 250px !important;
   }
 
   #intro-text h1 {
-    font-size: 32px;
+    font-size: 22px;
   }
 
   #webgl {
@@ -572,19 +572,24 @@ footer p {
   .info-text,
   .contact-deets {
     width: 100%;
-    padding: 0 45px;
+    padding: 0 15px;
   }
 
   .content-info {
     padding-top: 100px;
+    margin: 10px 20px;
   }
 
   #info {
-    margin: 0 45px;
+    margin: 0 20px;
   }
 
   .section {
-    width: 80%;
+    width: 100%;
+  }
+
+  .right {
+    align-self: flex-start;
   }
 
   .img-cover {
