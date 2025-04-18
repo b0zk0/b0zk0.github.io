@@ -215,7 +215,7 @@
 
     function refreshSlogan() {
         // quote randomizer
-        var slogans = [
+        let slogans = [
             "cynical views on the world and stuff since 1992",
             "welcome to your doom",
             "it's dot com!",
@@ -242,10 +242,14 @@
             "the cake is a lie",
             "turn on, boot up, jack in",
             "go team venture!",
-            "roses are red, violets are blue, unexpected '{' on line 32"
+            "roses are red, violets are blue, unexpected '{' on line 32",
+            "all you trekkies and tv addicts",
+            "in under 30 minutes or your pizza is cold",
+            "underachiever and proud of it",
+            "overachiever and proud of it"
         ];
 
-        var nonQuiteSlogans = [
+        let nonQuiteSlogans = [
             "I probably won't like you very much, but that doesn't mean we can't do something cool",
             "welcome to my humble site",
             "anxiety in the streets, insomnia in the sheets",
@@ -256,10 +260,13 @@
             "selling government secrets to the communists since 1992",
             "underhand tactics a specialty",
             "non-conformity a specialty",
-            "just hire me already!"
+            "just hire me already!",
+            "too precious for your bullshit",
+            "death to HR",
+
         ];
 
-        var randomNumber = Math.floor(Math.random() * (slogans.length));
+        const randomNumber = Math.floor(Math.random() * (slogans.length));
         document.getElementById('slogan').textContent = slogans[randomNumber];
     };
     document.addEventListener("load", refreshSlogan());
