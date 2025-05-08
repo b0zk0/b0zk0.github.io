@@ -619,7 +619,7 @@
 
     function refreshQuote() {
         // quote randomizer
-        var quotes = [
+        let quotes = [
             '"There are three responses to a piece of design: <br>yes, no, and wow. <br>Wow is the one to aim for." <br>- Milton Glaser',
             '"Graphic design will save the world right after rock and roll does." <br>- David Carson',
             '"Good design is honest." <br>- Dieter Rams',
@@ -631,21 +631,22 @@
             '"I\'m sick of following my dreams, man. I\'m just going to ask where they\'re going and hook up with \'em later." <br>- Mitch Hedberg'
         ];
 
-        var randomQuote = Math.floor(Math.random() * (quotes.length));
+        let randomQuote = Math.floor(Math.random() * (quotes.length));
         document.getElementById('quote').innerHTML = quotes[randomQuote];
     };
     document.addEventListener("load", refreshQuote());
 
     function refreshContactTitles() {
         // quote randomizer
-        let set0 = [
+
+        let exampleset = [
             'email',
             'linkedin',
             'github',
             'instagram',
             'spotify'
         ];
-
+        // default set?
         let set1 = [
             'click here to e-mail strong bad:',
             'it\'s hip to be square.',
@@ -653,7 +654,7 @@
             'I turn my camera on, I cut my fingers on the way.',
             'let\'s see if I\'ll have to wear headphones in your office or not.'
         ];
-
+        // rockabilly song lyrics
         let set2 = [
             'please mr. postman look and see, is there a letter in your bag for me?',
             'workin\' all summer just-a tryin\' to earn a dollar',
@@ -661,7 +662,7 @@
             'well be-bop-a-lula, she\'s my baby',
             'we\'re gonna rock this town, we\'re gonna rip this place apart'
         ];
-
+        // rockabilly song titles
         let set3 = [
             'please mr. postman - the marvelettes',
             'summertime blues - eddie cochran',
@@ -669,7 +670,7 @@
             'be-bop-a-lula - gene vincent',
             'rip it up - bill haley and his comets'
         ];
-
+        // star trek ones
         let set4 = [
             'hailing frequencies open',
             'captain\'s log, stardate 3045.6',
@@ -677,9 +678,18 @@
             'highly illogical',
             'standard orbit, mr. sulu'
         ];
-    };
 
-    // document.addEventListener("load", refreshContactTitles());
+        let sets = [set1, set2, set3, set4];
+
+        var randomSet = Math.floor(Math.random() * (sets.length));
+
+        document.getElementById('sub1').innerHTML = sets[randomSet][0];
+        document.getElementById('sub2').innerHTML = sets[randomSet][1];
+        document.getElementById('sub3').innerHTML = sets[randomSet][2];
+        document.getElementById('sub4').innerHTML = sets[randomSet][3];
+        document.getElementById('sub5').innerHTML = sets[randomSet][4];
+    };
+    document.addEventListener("load", refreshContactTitles());
 
 </script>
 
