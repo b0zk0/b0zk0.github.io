@@ -75,6 +75,7 @@ header {
   width: 100%;
   background-color: #000000;
   height: 105px;
+  z-index: 1;
 }
 
 .navbar {
